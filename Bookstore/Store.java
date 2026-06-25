@@ -1,4 +1,4 @@
-package Q3;
+package Bookstore;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;

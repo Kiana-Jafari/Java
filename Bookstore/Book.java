@@ -1,4 +1,4 @@
-package Q3;
+package Bookstore;
 
 abstract class Book {
 
