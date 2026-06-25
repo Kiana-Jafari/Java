@@ -27,19 +27,19 @@ public class Date {
     public void setDay(int day) {
         
         if (day >= 1 && day <= 31)
-            this.day = day;
+        this.day = day;
 
         else
-            throw new IllegalArgumentException("Day must be between 1 and 31. Got " + day);
+        throw new IllegalArgumentException("Day must be between 1 and 31. Got " + day);
     }
 
     public void setMonth(int month) {
         
         if (month >= 1 && month <= 12)
-            this.month = month;
+        this.month = month;
 
         else
-            throw new IllegalArgumentException("Month must be between 1 and 12. Got " + month);
+        throw new IllegalArgumentException("Month must be between 1 and 12. Got " + month);
     }
 
     public void setYear(int year) {

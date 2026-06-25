@@ -65,7 +65,12 @@ public class AvailableBooks extends Book {
     }
 
     public void setQuantity(int quantity) {
-        this.quantity = quantity;
+
+        if (quantity >= 0)
+            this.quantity = quantity;
+
+        else
+            throw new IllegalArgumentException("Quantity must be positive or 0. Got " + quantity);
     }
 
     // getters
@@ -93,64 +98,63 @@ public class AvailableBooks extends Book {
     }
 
     // get book's info from the user
-    public void getInput() {
+    public void getInput(Scanner scanner) {
 
-        Scanner input = new Scanner(System.in);
         String info;
 
         System.out.println("\nEnter the book's info:");
 
         System.out.printf("BookID: ");
-        info = input.nextLine();
+        info = scanner.nextLine();
         this.setBookID(info);
 
         System.out.printf("book title: ");
-        info = input.nextLine();
+        info = scanner.nextLine();
         this.setTitle(info);
 
         System.out.printf("author name: ");
-        info = input.nextLine();
+        info = scanner.nextLine();
         this.setAuthor(info);
 
         System.out.printf("translator name: ");
-        info = input.nextLine();
+        info = scanner.nextLine();
         this.setTranslator(info);
 
         System.out.printf("publication(s): ");
-        info = input.nextLine();
+        info = scanner.nextLine();
         this.setPublication(info);
 
         System.out.printf("ISBN: ");
-        info = input.nextLine();
+        info = scanner.nextLine();
         this.setISBN(info);
 
         System.out.printf("year of publication: ");
-        info = input.nextLine();
+        info = scanner.nextLine();
         this.setPublishedYear(Integer.parseInt(info));
 
         System.out.printf("enter date: ");
         System.out.printf("\nday: ");
-        info = input.nextLine();
+        info = scanner.nextLine();
         int day = Integer.parseInt(info);
         System.out.printf("month: ");
-        info = input.nextLine();
+        info = scanner.nextLine();
         int month = Integer.parseInt(info);
         System.out.printf("year: ");
-        info = input.nextLine();
+        info = scanner.nextLine();
         int year = Integer.parseInt(info);
         Date enter = new Date(day, month, year);
         this.setEnterDate(enter);
 
         System.out.printf("purchased price: ");
-        info = input.nextLine();
+        info = scanner.nextLine();
         this.setPurchasePrice(Double.parseDouble(info));
 
         System.out.printf("sale price: ");
-        info = input.nextLine();
+        info = scanner.nextLine();
         this.setSalePrice(Double.parseDouble(info));
 
         System.out.printf("book's quantity: ");
-        info = input.nextLine();
+        info = scanner.nextLine();
         this.setQuantity(Integer.parseInt(info));
 
         System.out.println("\n\nBook saved successfully!");
@@ -160,7 +164,6 @@ public class AvailableBooks extends Book {
     public void display() {
 
         System.out.printf(
-            
             "\n\nBook info:" +
             "\nBookID: " + this.getBookID() +
             "\nbook title: " + this.getTitle() +

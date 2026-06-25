@@ -12,8 +12,7 @@ public class Store {
     private AvailableBooks[] booksList = new AvailableBooks[capacity];
 
     // constructor to initialize n
-    public Store() 
-    {
+    public Store() {
         n = 0;
     }
 
@@ -64,8 +63,7 @@ public class Store {
             }
         }
 
-        catch (IOException e) 
-        {
+        catch (IOException e) {
 
             System.out.println("Error saving the book to the file");
         }
@@ -107,11 +105,11 @@ public class Store {
     }
 
     // insert a new book to the array if it is not already included
-    public void addBook() {
+    public void addBook(Scanner scanner) {
 
         AvailableBooks newBook = new AvailableBooks();
 
-        newBook.getInput(); // get the book info from the user
+        newBook.getInput(scanner); // get the book info from the user
 
         if (!isPresent(newBook.getBookID())) 
         {
@@ -120,17 +118,17 @@ public class Store {
         }
     }
 
-    public void getInfo() {
+    // get the info of N books and add them to the array
+    public void getInfo(Scanner scanner) {
 
-        Scanner input = new Scanner(System.in);
         int N;
 
         System.out.printf("\nHow many books do you want to add?: ");
-        N = input.nextInt();
+        N = scanner.nextInt();
 
         for (int i = 0; i < N; i++) 
         {
-            addBook(); // call the addBook function to add N books to the array
+            addBook(scanner); // call the addBook function to add N books to the array
         }
     }
 
